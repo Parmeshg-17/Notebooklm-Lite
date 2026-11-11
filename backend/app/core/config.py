@@ -50,7 +50,7 @@ class Settings(BaseSettings):
     GOOGLE_API_KEY: str = ""
     GEMINI_MODEL: str = "gemini-3.5-flash-lite"
     GEMINI_CHAT_MODEL: str = "gemini-3.5-flash-lite"
-    GEMINI_EMBEDDING_MODEL: str = "text-embedding-004"
+    GEMINI_EMBEDDING_MODEL: str = "models/gemini-embedding-001"
 
     # Ingestion & RAG Configuration
     CHUNK_SIZE: int = 1000

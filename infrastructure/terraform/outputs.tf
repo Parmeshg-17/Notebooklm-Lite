@@ -69,7 +69,7 @@ output "secrets_manager_app_arn" {
 }
 
 output "github_oidc_role_arn" {
-  value       = aws_iam_role.github_oidc.arn
+  value       = var.enable_github_oidc ? aws_iam_role.github_oidc[0].arn : null
   description = "IAM Role ARN for GitHub Actions OIDC authentication"
 }
 

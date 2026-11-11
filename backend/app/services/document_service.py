@@ -1,5 +1,5 @@
 import uuid
-from typing import List
+from typing import List, Optional, Tuple
 from fastapi import BackgroundTasks, UploadFile
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession

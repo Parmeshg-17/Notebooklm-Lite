@@ -18,8 +18,8 @@ permissions:
   contents: read
 
 env:
-  AWS_REGION: ap-south-1
-  S3_BUCKET: notebooklm-frontend-production
+  AWS_REGION: ap-southeast-2
+  S3_BUCKET: notebooklm-frontend-production-ohwwc581
   CLOUDFRONT_DIST_ID: ${{ secrets.CLOUDFRONT_DIST_ID }}
 
 jobs:
@@ -52,11 +52,11 @@ jobs:
           VITE_APP_VERSION: "1.4"
         run: npm run build
 
-      - name: Configure AWS Credentials via OIDC
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
-          role-session-name: GitHubActions-NotebookLM-FrontendDeploy
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Sync Static Assets to S3 (Long-term Cache)

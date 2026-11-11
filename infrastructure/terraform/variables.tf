@@ -1,7 +1,7 @@
 variable "aws_region" {
   type        = string
   description = "Target AWS Region"
-  default     = "ap-south-1"
+  default     = "ap-southeast-2"
 }
 
 variable "environment" {
@@ -70,10 +70,16 @@ variable "ecs_memory" {
   default     = 1024
 }
 
+variable "enable_nat_gateway" {
+  type        = bool
+  description = "Enable NAT Gateway for private subnet egress (false saves ~$39/mo by running tasks with direct egress)"
+  default     = false
+}
+
 variable "backend_desired_count" {
   type        = number
   description = "Desired number of running ECS backend tasks"
-  default     = 2
+  default     = 1
 }
 
 variable "backend_min_count" {
@@ -106,6 +112,12 @@ variable "qdrant_api_key" {
   description = "Qdrant API key"
   sensitive   = true
   default     = ""
+}
+
+variable "enable_github_oidc" {
+  type        = bool
+  description = "Enable GitHub OIDC Provider creation (false if SCP restricts OIDC creation, fallback to AWS credentials)"
+  default     = false
 }
 
 variable "github_repo" {

@@ -70,10 +70,9 @@ resource "aws_db_parameter_group" "pg16" {
 resource "aws_db_instance" "postgres" {
   identifier            = "${var.project_name}-db-${var.environment}"
   engine                = "postgres"
-  engine_version        = "16.3"
+  engine_version        = "16.9"
   instance_class        = var.db_instance_class
   allocated_storage     = var.db_allocated_storage
-  max_allocated_storage = 100 # Auto-minor storage scaling up to 100GB
   storage_type          = "gp3"
   storage_encrypted     = true # AWS KMS encryption at rest
 
@@ -86,14 +85,14 @@ resource "aws_db_instance" "postgres" {
   parameter_group_name   = aws_db_parameter_group.pg16.name
 
   publicly_accessible = false # Enforce zero public exposure
-  multi_az            = var.environment == "production" ? true : false
+  multi_az            = false # Single-AZ for Free Tier compliance
 
-  backup_retention_period    = 7
+  backup_retention_period    = 1
   backup_window              = "03:00-04:00"
   maintenance_window         = "Mon:04:00-Mon:05:00"
   auto_minor_version_upgrade = true
-  deletion_protection        = var.environment == "production" ? true : false
-  skip_final_snapshot        = var.environment == "production" ? false : true
+  deletion_protection        = false
+  skip_final_snapshot        = true
   final_snapshot_identifier  = "${var.project_name}-final-snapshot-${var.environment}"
 
   tags = {

@@ -97,17 +97,18 @@ resource "aws_iam_role_policy_attachment" "ecs_task_s3_attachment" {
   policy_arn = aws_iam_policy.ecs_s3_documents_policy.arn
 }
 
-# ── 3. GitHub Actions OIDC Role (Zero-Credential CI/CD) ──
+# ── 3. GitHub Actions OIDC Role (Zero-Credential CI/CD - Optional) ──
 # Reference or create GitHub OpenID Connect Provider
 resource "aws_iam_openid_connect_provider" "github" {
-  count           = 1
+  count           = var.enable_github_oidc ? 1 : 0
   url             = "https://token.actions.githubusercontent.com"
   client_id_list  = ["sts.amazonaws.com"]
   thumbprint_list = ["6938fd4d98bab03faadb97b34396831e3780aea1", "1c5824a85a33dd1075e7638b8b4b51fbe2a3a9fb"]
 }
 
 resource "aws_iam_role" "github_oidc" {
-  name = "${var.project_name}-github-oidc-role-${var.environment}"
+  count = var.enable_github_oidc ? 1 : 0
+  name  = "${var.project_name}-github-oidc-role-${var.environment}"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -198,7 +199,8 @@ resource "aws_iam_policy" "github_deploy_policy" {
 }
 
 resource "aws_iam_role_policy_attachment" "github_oidc_attachment" {
-  role       = aws_iam_role.github_oidc.name
+  count      = var.enable_github_oidc ? 1 : 0
+  role       = aws_iam_role.github_oidc[0].name
   policy_arn = aws_iam_policy.github_deploy_policy.arn
 }
 

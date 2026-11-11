@@ -47,7 +47,7 @@ class GeminiEmbeddingService(Embeddings):
         max_retries: int = 3,
     ):
         self.api_key = api_key or settings.effective_gemini_api_key
-        self.model_name = model_name or settings.GEMINI_EMBEDDING_MODEL or "text-embedding-004"
+        self.model_name = model_name or settings.GEMINI_EMBEDDING_MODEL or "models/gemini-embedding-001"
         self.dimension = dimension
         self.batch_size = batch_size
         self.max_retries = max_retries

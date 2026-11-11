@@ -14,7 +14,7 @@ VECTOR_DIMENSION = 768
 class EmbeddingService:
     def __init__(self):
         self.api_key = settings.GEMINI_API_KEY
-        self.model = settings.GEMINI_EMBEDDING_MODEL or "text-embedding-004"
+        self.model = settings.GEMINI_EMBEDDING_MODEL or "gemini-embedding-001"
         self._genai_client = None
 
     def _get_client(self):

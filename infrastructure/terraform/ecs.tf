@@ -208,9 +208,9 @@ resource "aws_ecs_service" "backend" {
   deployment_maximum_percent         = 200
 
   network_configuration {
-    subnets          = aws_subnet.private[*].id
+    subnets          = var.enable_nat_gateway ? aws_subnet.private[*].id : aws_subnet.public[*].id
     security_groups  = [aws_security_group.ecs_tasks.id]
-    assign_public_ip = false
+    assign_public_ip = var.enable_nat_gateway ? false : true
   }
 
   load_balancer {

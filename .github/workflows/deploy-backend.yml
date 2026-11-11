@@ -18,11 +18,10 @@ permissions:
   contents: read
 
 env:
-  AWS_REGION: ap-south-1
+  AWS_REGION: ap-southeast-2
   ECR_REPOSITORY: notebooklm-backend
-  ECS_CLUSTER: notebooklm-cluster
+  ECS_CLUSTER: notebooklm-cluster-production
   ECS_SERVICE: notebooklm-backend-service
-  ECS_TASK_DEFINITION: infrastructure/ecs/task-definition.json
   CONTAINER_NAME: backend
 
 jobs:
@@ -35,11 +34,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Configure AWS Credentials via OIDC
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
-          role-session-name: GitHubActions-NotebookLM-BackendDeploy
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Log in to Amazon ECR
@@ -82,7 +81,7 @@ jobs:
 
       - name: Verify Backend Healthcheck
         run: |
-          ALB_DNS=$(aws elbv2 describe-load-balancers --names notebooklm-alb --query "LoadBalancers[0].DNSName" --output text)
+          ALB_DNS=$(aws elbv2 describe-load-balancers --names notebooklm-alb-production --query "LoadBalancers[0].DNSName" --output text)
           echo "Probing ALB at http://$ALB_DNS/api/v1/health..."
           for i in {1..12}; do
             STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://$ALB_DNS/api/v1/health || true)
