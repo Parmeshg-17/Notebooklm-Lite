@@ -1,0 +1,300 @@
+{
+  "timestamp": "2026-11-05T14:13:45Z",
+  "summary": {
+    "total_cases": 16,
+    "routing_accuracy": 100.0,
+    "tool_accuracy": 100.0,
+    "groundedness_accuracy": 100.0,
+    "p50_latency_ms": 724.17,
+    "p95_latency_ms": 4879.32
+  },
+  "cases": [
+    {
+      "case_id": "EVAL_01",
+      "question": "What is discussed on page 4 of the document?",
+      "expected_intent": "PAGE_SPECIFIC_QUESTION",
+      "actual_intent": "PAGE_SPECIFIC_QUESTION",
+      "intent_match": true,
+      "expected_tool": "get_page_content",
+      "actual_tools": [
+        "get_page_content",
+        "search_documents"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 4879.32,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_02",
+      "question": "Explain the diagram on p. 12",
+      "expected_intent": "PAGE_SPECIFIC_QUESTION",
+      "actual_intent": "PAGE_SPECIFIC_QUESTION",
+      "intent_match": true,
+      "expected_tool": "get_page_content",
+      "actual_tools": [
+        "get_page_content",
+        "search_documents"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 702.74,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_03",
+      "question": "At page 7, what is the throughput benchmark?",
+      "expected_intent": "PAGE_SPECIFIC_QUESTION",
+      "actual_intent": "PAGE_SPECIFIC_QUESTION",
+      "intent_match": true,
+      "expected_tool": "get_page_content",
+      "actual_tools": [
+        "get_page_content",
+        "search_documents"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 717.41,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_04",
+      "question": "Compare FlashAttention-3 versus FlashAttention-2 speedup",
+      "expected_intent": "COMPARISON_QUESTION",
+      "actual_intent": "COMPARISON_QUESTION",
+      "intent_match": true,
+      "expected_tool": "compare_sources",
+      "actual_tools": [
+        "compare_sources"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 765.61,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_05",
+      "question": "What is the difference between PagedAttention and standard attention?",
+      "expected_intent": "COMPARISON_QUESTION",
+      "actual_intent": "COMPARISON_QUESTION",
+      "intent_match": true,
+      "expected_tool": "compare_sources",
+      "actual_tools": [
+        "compare_sources"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 721.26,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_06",
+      "question": "Contrast the latency trade-offs of draft model verification",
+      "expected_intent": "COMPARISON_QUESTION",
+      "actual_intent": "COMPARISON_QUESTION",
+      "intent_match": true,
+      "expected_tool": "compare_sources",
+      "actual_tools": [
+        "compare_sources"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 682.74,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_07",
+      "question": "Summarize the key findings in this document",
+      "expected_intent": "DOCUMENT_SUMMARY",
+      "actual_intent": "DOCUMENT_SUMMARY",
+      "intent_match": true,
+      "expected_tool": "summarize_document",
+      "actual_tools": [
+        "search_documents"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 730.99,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_08",
+      "question": "Give me an overview of the core architecture",
+      "expected_intent": "DOCUMENT_SUMMARY",
+      "actual_intent": "DOCUMENT_SUMMARY",
+      "intent_match": true,
+      "expected_tool": "summarize_document",
+      "actual_tools": [
+        "search_documents"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 730.16,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_09",
+      "question": "TLDR of experimental results and conclusions",
+      "expected_intent": "DOCUMENT_SUMMARY",
+      "actual_intent": "DOCUMENT_SUMMARY",
+      "intent_match": true,
+      "expected_tool": "summarize_document",
+      "actual_tools": [
+        "search_documents"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 723.8,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_10",
+      "question": "What are the common themes across all documents in this notebook?",
+      "expected_intent": "MULTI_DOCUMENT_QUESTION",
+      "actual_intent": "MULTI_DOCUMENT_QUESTION",
+      "intent_match": true,
+      "expected_tool": "search_documents",
+      "actual_tools": [
+        "search_documents",
+        "search_documents"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 1584.12,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_11",
+      "question": "Synthesize the findings across documents regarding memory bandwidth",
+      "expected_intent": "MULTI_DOCUMENT_QUESTION",
+      "actual_intent": "MULTI_DOCUMENT_QUESTION",
+      "intent_match": true,
+      "expected_tool": "search_documents",
+      "actual_tools": [
+        "search_documents",
+        "search_documents"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 757.21,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_12",
+      "question": "What is the weather in Tokyo tomorrow?",
+      "expected_intent": "INSUFFICIENT_EVIDENCE",
+      "actual_intent": "INSUFFICIENT_EVIDENCE",
+      "intent_match": true,
+      "expected_tool": null,
+      "actual_tools": [],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 2.06,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_13",
+      "question": "Hello, how are you today?",
+      "expected_intent": "INSUFFICIENT_EVIDENCE",
+      "actual_intent": "INSUFFICIENT_EVIDENCE",
+      "intent_match": true,
+      "expected_tool": null,
+      "actual_tools": [],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 2.41,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_14",
+      "question": "Write a poem about quantum computers",
+      "expected_intent": "INSUFFICIENT_EVIDENCE",
+      "actual_intent": "INSUFFICIENT_EVIDENCE",
+      "intent_match": true,
+      "expected_tool": null,
+      "actual_tools": [],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 2.23,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_15",
+      "question": "How does TMA enable asynchronous data movement?",
+      "expected_intent": "SIMPLE_QUESTION",
+      "actual_intent": "SIMPLE_QUESTION",
+      "intent_match": true,
+      "expected_tool": "search_documents",
+      "actual_tools": [
+        "search_documents"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 724.17,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    },
+    {
+      "case_id": "EVAL_16",
+      "question": "What hardware features does NVIDIA Hopper introduce?",
+      "expected_intent": "SIMPLE_QUESTION",
+      "actual_intent": "SIMPLE_QUESTION",
+      "intent_match": true,
+      "expected_tool": "search_documents",
+      "actual_tools": [
+        "search_documents"
+      ],
+      "tool_match": true,
+      "citation_count": 0,
+      "is_grounded": true,
+      "insufficient_evidence": true,
+      "grounding_valid": true,
+      "latency_ms": 951.92,
+      "answer_preview": "The available documents do not contain sufficient evidence to answer this question."
+    }
+  ]
+}

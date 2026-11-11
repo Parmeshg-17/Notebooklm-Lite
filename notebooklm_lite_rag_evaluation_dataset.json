@@ -1,0 +1,611 @@
+{
+  "dataset_name": "NotebookLM Lite — AI Engineering PDF RAG Evaluation",
+  "dataset_version": "1.0.0",
+  "source_documents": [
+    "AI Engineering.pdf"
+  ],
+  "source_scope": "Closed-book evaluation against uploaded sources only",
+  "total_questions": 70,
+  "category_counts": {
+    "straightforward": 20,
+    "multi_document": 15,
+    "comparison": 10,
+    "page_specific": 10,
+    "unanswerable": 15
+  },
+  "schema_notes": {
+    "reference_answers": "Not included; add human-verified gold answers before scoring semantic answer accuracy.",
+    "citations": "Answerable cases require exact document and page citations.",
+    "abstention": "Unanswerable cases require an explicit abstention and no fabricated citations.",
+    "multi_document": "Requires at least two relevant documents; with one PDF, mark BLOCKED rather than PASS.",
+    "page_numbers": "Hints are printed book pages, not PDF viewer indexes; resolve the mapping during ingestion.",
+    "external_search": "Disable web/external retrieval for this closed-book benchmark."
+  },
+  "questions": [
+    {
+      "id": "Q001",
+      "category": "straightforward",
+      "question": "What is AI engineering?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q002",
+      "category": "straightforward",
+      "question": "What are the main responsibilities of the application development layer in AI engineering?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q003",
+      "category": "straightforward",
+      "question": "What is prompt engineering?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q004",
+      "category": "straightforward",
+      "question": "What is in-context learning?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q005",
+      "category": "straightforward",
+      "question": "What is the difference between zero-shot and few-shot prompting?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q006",
+      "category": "straightforward",
+      "question": "What is a foundation model?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q007",
+      "category": "straightforward",
+      "question": "What is retrieval-augmented generation (RAG)?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q008",
+      "category": "straightforward",
+      "question": "What is the purpose of a retriever in a RAG system?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q009",
+      "category": "straightforward",
+      "question": "What is embedding-based retrieval?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q010",
+      "category": "straightforward",
+      "question": "What is term-based retrieval?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q011",
+      "category": "straightforward",
+      "question": "What is hybrid search?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q012",
+      "category": "straightforward",
+      "question": "What is reranking in a retrieval system?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q013",
+      "category": "straightforward",
+      "question": "What is query rewriting?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q014",
+      "category": "straightforward",
+      "question": "What is contextual retrieval?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q015",
+      "category": "straightforward",
+      "question": "What is chunking in RAG?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q016",
+      "category": "straightforward",
+      "question": "What is an AI agent?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q017",
+      "category": "straightforward",
+      "question": "Why is evaluation important when developing AI applications?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q018",
+      "category": "straightforward",
+      "question": "What is fine-tuning?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q019",
+      "category": "straightforward",
+      "question": "What is quantization?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q020",
+      "category": "straightforward",
+      "question": "What is the difference between monitoring and observability?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q021",
+      "category": "multi_document",
+      "question": "Across the uploaded documents, explain the typical development process for modern AI applications.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q022",
+      "category": "multi_document",
+      "question": "Compare the approaches described across the documents for improving foundation-model performance.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q023",
+      "category": "multi_document",
+      "question": "How do the uploaded documents relate model quality to application-layer engineering?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q024",
+      "category": "multi_document",
+      "question": "What evaluation challenges are discussed across the uploaded documents?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q025",
+      "category": "multi_document",
+      "question": "How do the documents explain the role of retrieval in giving foundation models access to external information?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q026",
+      "category": "multi_document",
+      "question": "Which retrieval-quality improvement techniques appear across the uploaded documents?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q027",
+      "category": "multi_document",
+      "question": "What causes hallucinations, and what mitigation methods are described across the documents?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q028",
+      "category": "multi_document",
+      "question": "Compare the different approaches to constructing context discussed in the uploaded documents.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q029",
+      "category": "multi_document",
+      "question": "What limitations of long context windows are described across the uploaded documents?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q030",
+      "category": "multi_document",
+      "question": "How do the documents explain the ways AI agents extend foundation-model capabilities?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q031",
+      "category": "multi_document",
+      "question": "What methods for improving model efficiency are described across the uploaded documents?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q032",
+      "category": "multi_document",
+      "question": "What engineering practices do the uploaded documents recommend for building reliable AI applications?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q033",
+      "category": "multi_document",
+      "question": "How is evaluation used at different stages of the AI application lifecycle across the documents?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q034",
+      "category": "multi_document",
+      "question": "What security and safety risks are described across the uploaded documents?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q035",
+      "category": "multi_document",
+      "question": "Summarize the production-readiness recommendations that appear across the uploaded documents?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "requires_multiple_documents": true
+    },
+    {
+      "id": "Q036",
+      "category": "comparison",
+      "question": "Compare RAG and fine-tuning. What problems is each approach suited to?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q037",
+      "category": "comparison",
+      "question": "Compare embedding-based retrieval with term-based retrieval.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q038",
+      "category": "comparison",
+      "question": "Compare RAG architectures with AI-agent architectures.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q039",
+      "category": "comparison",
+      "question": "Compare zero-shot prompting with few-shot prompting.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q040",
+      "category": "comparison",
+      "question": "Compare monitoring with observability.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q041",
+      "category": "comparison",
+      "question": "Compare quantization with model distillation.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q042",
+      "category": "comparison",
+      "question": "Compare reference-based evaluation with reference-free evaluation.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q043",
+      "category": "comparison",
+      "question": "Compare short-context construction strategies with approaches that use longer context windows.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q044",
+      "category": "comparison",
+      "question": "Compare information-related model failures with behavior-related model failures, as described in the source.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q045",
+      "category": "comparison",
+      "question": "Compare traditional machine-learning engineering with foundation-model AI engineering.",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations."
+    },
+    {
+      "id": "Q046",
+      "category": "page_specific",
+      "question": "On the printed pages about context length and context efficiency, what problem is discussed and what practical implications are given?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "page_hint_printed": "218–220"
+    },
+    {
+      "id": "Q047",
+      "category": "page_specific",
+      "question": "On the printed page introducing RAG architecture, what are the main components and how do they interact?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "page_hint_printed": "256"
+    },
+    {
+      "id": "Q048",
+      "category": "page_specific",
+      "question": "On the printed pages about retrieval algorithms, what retrieval approaches are described?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "page_hint_printed": "257–267"
+    },
+    {
+      "id": "Q049",
+      "category": "page_specific",
+      "question": "On the printed page about query rewriting, why might a conversational follow-up need to be rewritten before retrieval?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "page_hint_printed": "270"
+    },
+    {
+      "id": "Q050",
+      "category": "page_specific",
+      "question": "On the printed pages about contextual retrieval, how can adding context or metadata improve retrieval?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "page_hint_printed": "271–272"
+    },
+    {
+      "id": "Q051",
+      "category": "page_specific",
+      "question": "On the printed pages about RAG beyond text, what non-text or structured data use cases are discussed?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "page_hint_printed": "273–275"
+    },
+    {
+      "id": "Q052",
+      "category": "page_specific",
+      "question": "On the printed pages about reflection in agents, how can reflection and error correction improve an agent's work?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "page_hint_printed": "292–294"
+    },
+    {
+      "id": "Q053",
+      "category": "page_specific",
+      "question": "On the printed pages comparing fine-tuning and RAG, what trade-offs or complementary uses are explained?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "page_hint_printed": "316–319"
+    },
+    {
+      "id": "Q054",
+      "category": "page_specific",
+      "question": "On the printed pages about engineering architecture, what role does context construction play?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "page_hint_printed": "450–451"
+    },
+    {
+      "id": "Q055",
+      "category": "page_specific",
+      "question": "On the printed pages about monitoring AI application quality, which metrics are discussed?",
+      "answerable_from_source": true,
+      "evaluation_mode": "grounded_answer",
+      "expected_behavior": "Answer from uploaded source with exact document/page citations.",
+      "page_hint_printed": "466–467"
+    },
+    {
+      "id": "Q056",
+      "category": "unanswerable",
+      "question": "What was the exact number of copies of this book sold during 2025?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q057",
+      "category": "unanswerable",
+      "question": "What was the book's total revenue in 2025?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q058",
+      "category": "unanswerable",
+      "question": "What exact score did a named model achieve on a specific benchmark on 10 November 2026?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q059",
+      "category": "unanswerable",
+      "question": "What is the author's next book publication date?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q060",
+      "category": "unanswerable",
+      "question": "How many active users does NotebookLM have today?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q061",
+      "category": "unanswerable",
+      "question": "Which company will have the largest share of the global AI market in 2030?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q062",
+      "category": "unanswerable",
+      "question": "What is the current market capitalization of NVIDIA?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q063",
+      "category": "unanswerable",
+      "question": "What is the current share price of Microsoft?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q064",
+      "category": "unanswerable",
+      "question": "What is the average salary for an AI engineer in Mumbai in November 2026?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q065",
+      "category": "unanswerable",
+      "question": "How many AI engineers work at every major technology company worldwide?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q066",
+      "category": "unanswerable",
+      "question": "What was the exact 2025 profit of each company mentioned in the book?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q067",
+      "category": "unanswerable",
+      "question": "What is the current number of users of NotebookLM Lite?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q068",
+      "category": "unanswerable",
+      "question": "What private API key does the author use for their personal projects?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q069",
+      "category": "unanswerable",
+      "question": "What exact percentage of all enterprise AI deployments use RAG today?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    },
+    {
+      "id": "Q070",
+      "category": "unanswerable",
+      "question": "What will be the highest-performing AI model on a benchmark in 2027?",
+      "answerable_from_source": false,
+      "evaluation_mode": "abstain_if_not_in_sources",
+      "expected_behavior": "Do not guess; state that the uploaded source does not contain enough information."
+    }
+  ]
+}

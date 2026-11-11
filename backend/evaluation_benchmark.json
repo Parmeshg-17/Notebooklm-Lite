@@ -1,0 +1,1124 @@
+{
+  "baseline": {
+    "Recall@5": 33.33,
+    "Precision@5": 0.0,
+    "MRR": 0.3333,
+    "Context Precision": 33.33,
+    "Faithfulness": 26.67,
+    "Answer Relevancy": 11.22,
+    "Citation Accuracy": 0.0,
+    "Unsupported Claim Rate": 100.0,
+    "Refusal Accuracy": 66.67
+  },
+  "improved": {
+    "Recall@5": 51.11,
+    "Precision@5": 8.0,
+    "MRR": 0.4778,
+    "Context Precision": 46.2,
+    "Faithfulness": 70.0,
+    "Answer Relevancy": 43.11,
+    "Citation Accuracy": 10.39,
+    "Unsupported Claim Rate": 89.61,
+    "Refusal Accuracy": 70.0
+  },
+  "detailed_cases": [
+    {
+      "id": "fact_01",
+      "category": "factual",
+      "question": "Who cofounded OpenAI after authoring the AlexNet paper?",
+      "expected_pages": [
+        13
+      ],
+      "baseline_pages": [
+        164,
+        281,
+        166,
+        142,
+        27
+      ],
+      "improved_pages": [
+        13,
+        89,
+        443,
+        241,
+        408
+      ],
+      "baseline_citations": [
+        164,
+        281,
+        166,
+        142,
+        27
+      ],
+      "improved_citations": [
+        13,
+        89,
+        241,
+        408
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"1 An author of the AlexNet paper, Ilya Sutskever, went on to cofound OpenAI, turning this lesson into"
+    },
+    {
+      "id": "fact_02",
+      "category": "factual",
+      "question": "What is the title of Chapter 9 in the book AI Engineering?",
+      "expected_pages": [
+        11
+      ],
+      "baseline_pages": [
+        86,
+        331,
+        389,
+        70,
+        526
+      ],
+      "improved_pages": [
+        21,
+        15,
+        15,
+        26,
+        72
+      ],
+      "baseline_citations": [
+        86,
+        331,
+        389,
+        70,
+        526
+      ],
+      "improved_citations": [
+        15,
+        21,
+        26
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"book focuses on the fundamentals of AI engineering instead of any specific tool or\" *(, page 15)* - \""
+    },
+    {
+      "id": "fact_03",
+      "category": "factual",
+      "question": "Who is the author of the book AI Engineering?",
+      "expected_pages": [
+        3,
+        4,
+        6
+      ],
+      "baseline_pages": [
+        535,
+        264,
+        376,
+        358,
+        131
+      ],
+      "improved_pages": [
+        534,
+        21,
+        6,
+        2,
+        15
+      ],
+      "baseline_citations": [
+        535,
+        264,
+        376,
+        358,
+        131
+      ],
+      "improved_citations": [
+        2,
+        15,
+        534,
+        21,
+        6
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"In this accessible guide, author Chip Huyen discusses AI engineering: the process of building applica"
+    },
+    {
+      "id": "fact_04",
+      "category": "factual",
+      "question": "What publisher published the book AI Engineering?",
+      "expected_pages": [
+        6
+      ],
+      "baseline_pages": [
+        156,
+        423,
+        106,
+        89,
+        144
+      ],
+      "improved_pages": [
+        21,
+        6,
+        15,
+        14,
+        2
+      ],
+      "baseline_citations": [
+        156,
+        423,
+        106,
+        89,
+        144
+      ],
+      "improved_citations": [
+        15,
+        21,
+        6,
+        14
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"book focuses on the fundamentals of AI engineering instead of any specific tool or\" *(, page 15)* - \""
+    },
+    {
+      "id": "fact_05",
+      "category": "factual",
+      "question": "What is the ISBN of the book AI Engineering?",
+      "expected_pages": [
+        2
+      ],
+      "baseline_pages": [
+        175,
+        193,
+        403,
+        16,
+        89
+      ],
+      "improved_pages": [
+        21,
+        2,
+        15,
+        14,
+        6
+      ],
+      "baseline_citations": [
+        175,
+        193,
+        403,
+        16,
+        89
+      ],
+      "improved_citations": [
+        15,
+        21,
+        2,
+        14
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"book focuses on the fundamentals of AI engineering instead of any specific tool or\" *(, page 15)* - \""
+    },
+    {
+      "id": "concept_06",
+      "category": "conceptual",
+      "question": "Why is memory bandwidth a major bottleneck during autoregressive token generation?",
+      "expected_pages": [
+        452
+      ],
+      "baseline_pages": [
+        528,
+        357,
+        447,
+        327,
+        347
+      ],
+      "improved_pages": [
+        528,
+        452,
+        458,
+        434,
+        526
+      ],
+      "baseline_citations": [
+        528,
+        357,
+        447,
+        327,
+        347
+      ],
+      "improved_citations": [
+        452,
+        458,
+        526
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"19 Each token generation step necessitates the transfer of the entire model’s parameters from the acc"
+    },
+    {
+      "id": "concept_07",
+      "category": "conceptual",
+      "question": "What contributes significantly to the memory footprint of transformer models alongside model weights?",
+      "expected_pages": [
+        353
+      ],
+      "baseline_pages": [
+        447,
+        528,
+        170,
+        347,
+        447
+      ],
+      "improved_pages": [
+        347,
+        347,
+        349,
+        352,
+        348
+      ],
+      "baseline_citations": [
+        447,
+        528,
+        170,
+        347,
+        447
+      ],
+      "improved_citations": [
+        347
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"assumption brings the model’s memory footprint to:\" *(, page 347)* - \"A model’s memory footprint grow"
+    },
+    {
+      "id": "concept_08",
+      "category": "conceptual",
+      "question": "How does speculative decoding improve inference latency for language models?",
+      "expected_pages": [
+        452,
+        453
+      ],
+      "baseline_pages": [
+        529,
+        34,
+        207,
+        32,
+        71
+      ],
+      "improved_pages": [
+        472,
+        453,
+        528,
+        522,
+        529
+      ],
+      "baseline_citations": [
+        529,
+        34,
+        207,
+        32,
+        71
+      ],
+      "improved_citations": [
+        472,
+        453,
+        528
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"language model is in its autoregressive decoding process, and consequently, many\" *(, page 472)* - \"T"
+    },
+    {
+      "id": "concept_09",
+      "category": "conceptual",
+      "question": "What are common failure modes and challenges in AI agent planning?",
+      "expected_pages": [
+        281,
+        298
+      ],
+      "baseline_pages": [
+        16,
+        22,
+        220,
+        423,
+        427
+      ],
+      "improved_pages": [
+        322,
+        521,
+        322,
+        323,
+        10
+      ],
+      "baseline_citations": [
+        16,
+        22,
+        220,
+        423,
+        427
+      ],
+      "improved_citations": [
+        322,
+        521,
+        10
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"Agent Failure Modes and Evaluation\" *(, page 322)* - \"Other than the failure modes common to\" *(, pag"
+    },
+    {
+      "id": "concept_10",
+      "category": "conceptual",
+      "question": "What is the primary advantage of Low-Rank Adaptation (LoRA) for model fine-tuning?",
+      "expected_pages": [
+        353,
+        371
+      ],
+      "baseline_pages": [
+        500,
+        360,
+        407,
+        519,
+        474
+      ],
+      "improved_pages": [
+        528,
+        364,
+        365,
+        365,
+        362
+      ],
+      "baseline_citations": [
+        500,
+        360,
+        407,
+        519,
+        474
+      ],
+      "improved_citations": [
+        528,
+        364,
+        365
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"LoRA (low-rank adaptation), 338-347\" *(, page 528)* - \"LoRA (Low-Rank Adaptation) is built on the con"
+    },
+    {
+      "id": "multi_11",
+      "category": "multi_page",
+      "question": "How does the text describe multimodal RAG beyond plain text?",
+      "expected_pages": [
+        273,
+        10,
+        274
+      ],
+      "baseline_pages": [
+        432,
+        306,
+        18,
+        420,
+        416
+      ],
+      "improved_pages": [
+        530,
+        297,
+        33,
+        34,
+        304
+      ],
+      "baseline_citations": [
+        432,
+        306,
+        18,
+        420,
+        416
+      ],
+      "improved_citations": [
+        297,
+        530,
+        33
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"Multimodal RAG can augment a query with both text and images.\" *(, page 297)* - \"RAG beyond texts, 27"
+    },
+    {
+      "id": "multi_12",
+      "category": "multi_page",
+      "question": "What are the trade-offs between prompt engineering, RAG, and fine-tuning for adapting foundation models?",
+      "expected_pages": [
+        305,
+        10,
+        306
+      ],
+      "baseline_pages": [
+        530,
+        280,
+        147,
+        100,
+        292
+      ],
+      "improved_pages": [
+        14,
+        66,
+        2,
+        14,
+        340
+      ],
+      "baseline_citations": [
+        530,
+        280,
+        147,
+        100,
+        292
+      ],
+      "improved_citations": [
+        14,
+        2,
+        66
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"This book covers the end-to-end process of adapting foundation models to solve realworld problems, en"
+    },
+    {
+      "id": "multi_13",
+      "category": "multi_page",
+      "question": "How are LLM evaluation pipelines structured according to the text?",
+      "expected_pages": [
+        166,
+        231
+      ],
+      "baseline_pages": [
+        105,
+        466,
+        485,
+        21,
+        51
+      ],
+      "improved_pages": [
+        160,
+        181,
+        140,
+        147,
+        123
+      ],
+      "baseline_citations": [
+        105,
+        466,
+        485,
+        21,
+        51
+      ],
+      "improved_citations": [
+        181,
+        140,
+        160
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"how to incorporate them into their evaluation pipelines.\" *(, page 181)* - \"LLM evaluation grew expon"
+    },
+    {
+      "id": "multi_14",
+      "category": "multi_page",
+      "question": "What strategies are recommended for document chunking and context management in retrieval?",
+      "expected_pages": [
+        260,
+        268
+      ],
+      "baseline_pages": [
+        115,
+        40,
+        185,
+        51,
+        68
+      ],
+      "improved_pages": [
+        281,
+        292,
+        292,
+        291,
+        295
+      ],
+      "baseline_citations": [
+        115,
+        40,
+        185,
+        51,
+        68
+      ],
+      "improved_citations": [
+        281,
+        292,
+        295
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"Chunking strategies will be discussed later in\" *(, page 281)* - \"Specific documents might also suppo"
+    },
+    {
+      "id": "multi_15",
+      "category": "multi_page",
+      "question": "What are the pros and cons of local on-device model deployment versus cloud API hosting?",
+      "expected_pages": [
+        214,
+        215
+      ],
+      "baseline_pages": [
+        460,
+        485,
+        48,
+        289,
+        441
+      ],
+      "improved_pages": [
+        214,
+        214,
+        233,
+        529,
+        529
+      ],
+      "baseline_citations": [
+        460,
+        485,
+        48,
+        289,
+        441
+      ],
+      "improved_citations": [
+        214,
+        233
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"Pros and cons of using model APIs and self-hosting models (cons in italics).\" *(, page 214)* - \"If yo"
+    },
+    {
+      "id": "comp_16",
+      "category": "comparison",
+      "question": "How does quantization compare to pruning and knowledge distillation for model compression?",
+      "expected_pages": [
+        353,
+        350
+      ],
+      "baseline_pages": [
+        419,
+        510,
+        352,
+        306,
+        530
+      ],
+      "improved_pages": [
+        419,
+        451,
+        451,
+        527,
+        530
+      ],
+      "baseline_citations": [
+        419,
+        510,
+        352,
+        306,
+        530
+      ],
+      "improved_citations": [
+        419,
+        451
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"Model distillation (also called knowledge distillation) is a method in which a small\" *(, page 419)* "
+    },
+    {
+      "id": "comp_17",
+      "category": "comparison",
+      "question": "Compare dense semantic retrieval with sparse lexical BM25 retrieval.",
+      "expected_pages": [
+        260,
+        268
+      ],
+      "baseline_pages": [
+        81,
+        208,
+        440,
+        33,
+        138
+      ],
+      "improved_pages": [
+        282,
+        282,
+        284,
+        284,
+        531
+      ],
+      "baseline_citations": [
+        81,
+        208,
+        440,
+        33,
+        138
+      ],
+      "improved_citations": [
+        282,
+        284
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"For example, SPLADE (Sparse Lexical and Expansion) is a retrieval\" *(, page 282)* - \"Sparse Versus De"
+    },
+    {
+      "id": "comp_18",
+      "category": "comparison",
+      "question": "Compare AI-as-a-judge evaluation with human evaluation guidelines.",
+      "expected_pages": [
+        403,
+        166
+      ],
+      "baseline_pages": [
+        118,
+        295,
+        113,
+        87,
+        328
+      ],
+      "improved_pages": [
+        179,
+        173,
+        176,
+        404,
+        521
+      ],
+      "baseline_citations": [
+        118,
+        295,
+        113,
+        87,
+        328
+      ],
+      "improved_citations": [
+        404,
+        179
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"The good news is that these guidelines are the same as those for evaluation data, as\" *(, page 404)* "
+    },
+    {
+      "id": "comp_19",
+      "category": "comparison",
+      "question": "What is the list price of the physical book?",
+      "expected_pages": [
+        2
+      ],
+      "baseline_pages": [
+        452,
+        83,
+        492,
+        33,
+        531
+      ],
+      "improved_pages": [
+        311,
+        42,
+        21,
+        429,
+        472
+      ],
+      "baseline_citations": [
+        452,
+        83,
+        492,
+        33,
+        531
+      ],
+      "improved_citations": [
+        21,
+        311,
+        42
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"We have a web page for this book, where we list errata, examples, and any additional\" *(, page 21)* -"
+    },
+    {
+      "id": "comp_20",
+      "category": "comparison",
+      "question": "Is model scaling always preferable to smaller specialized models?",
+      "expected_pages": [
+        13,
+        214
+      ],
+      "baseline_pages": [
+        93,
+        209,
+        515,
+        79,
+        487
+      ],
+      "improved_pages": [
+        336,
+        75,
+        99,
+        97,
+        97
+      ],
+      "baseline_citations": [
+        93,
+        209,
+        515,
+        79,
+        487
+      ],
+      "improved_citations": [
+        336,
+        75,
+        99
+      ],
+      "improved_refused": false,
+      "should_refuse": false,
+      "improved_answer_preview": "Based on ****:  - \"larger model’s knowledge into the smaller model, it’s called distillation.\" *(, page 336)* - \"Flan-T5"
+    },
+    {
+      "id": "unans_21",
+      "category": "unanswerable",
+      "question": "What is the secret 11 herbs and spices recipe for Kentucky Fried Chicken?",
+      "expected_pages": [],
+      "baseline_pages": [
+        526,
+        77,
+        351,
+        208,
+        369
+      ],
+      "improved_pages": [
+        513,
+        350,
+        247,
+        18,
+        441
+      ],
+      "baseline_citations": [
+        526,
+        77,
+        351,
+        208,
+        369
+      ],
+      "improved_citations": [
+        350,
+        513,
+        18,
+        441
+      ],
+      "improved_refused": false,
+      "should_refuse": true,
+      "improved_answer_preview": "Based on ****:  - \"11 Google introduced BFloat16 as “the secret to high performance on Cloud TPUs”.\" *(, page 350)* - \"1"
+    },
+    {
+      "id": "unans_22",
+      "category": "unanswerable",
+      "question": "What was the closing stock price of Tesla on December 15, 2025?",
+      "expected_pages": [],
+      "baseline_pages": [
+        123,
+        15,
+        348,
+        3,
+        347
+      ],
+      "improved_pages": [
+        37,
+        30,
+        30,
+        429,
+        409
+      ],
+      "baseline_citations": [
+        123,
+        15,
+        348,
+        3,
+        347
+      ],
+      "improved_citations": [
+        37,
+        429,
+        30,
+        409
+      ],
+      "improved_refused": false,
+      "should_refuse": true,
+      "improved_answer_preview": "Based on ****:  - \"saw their stock price increase more than those that didn’t: an average of a 4.6%\" *(, page 37)* - \"wo"
+    },
+    {
+      "id": "unans_23",
+      "category": "unanswerable",
+      "question": "What are the exact dimensions and weight of the Apollo 11 lunar module fuel tanks?",
+      "expected_pages": [],
+      "baseline_pages": [
+        515,
+        419,
+        481,
+        183,
+        139
+      ],
+      "improved_pages": [
+        86,
+        87,
+        186,
+        206,
+        366
+      ],
+      "baseline_citations": [
+        515,
+        419,
+        481,
+        183,
+        139
+      ],
+      "improved_citations": [
+        86,
+        366
+      ],
+      "improved_refused": false,
+      "should_refuse": true,
+      "improved_answer_preview": "Based on ****:  - \"Each attention module consists of four weight matrices: query, key, value, and\" *(, page 86)* - \"For "
+    },
+    {
+      "id": "unans_24",
+      "category": "unanswerable",
+      "question": "What dosage of amoxicillin is prescribed for adult streptococcal pharyngitis in this book?",
+      "expected_pages": [],
+      "baseline_pages": [
+        144,
+        372,
+        500,
+        451,
+        27
+      ],
+      "improved_pages": [
+        17,
+        14,
+        19,
+        20,
+        519
+      ],
+      "baseline_citations": [
+        144,
+        372,
+        500,
+        451,
+        27
+      ],
+      "improved_citations": [
+        17,
+        14
+      ],
+      "improved_refused": false,
+      "should_refuse": true,
+      "improved_answer_preview": "Based on ****:  - \"If you don’t know them yet, don’t worry—this book has either brief, high-level\" *(, page 17)* - \"This"
+    },
+    {
+      "id": "unans_25",
+      "category": "unanswerable",
+      "question": "What is the terminal gate departure schedule for United Airlines flight 853 from Tokyo?",
+      "expected_pages": [],
+      "baseline_pages": [
+        344,
+        369,
+        449,
+        344,
+        442
+      ],
+      "improved_pages": [
+        21,
+        301,
+        129,
+        344,
+        303
+      ],
+      "baseline_citations": [
+        344,
+        369,
+        449,
+        344,
+        442
+      ],
+      "improved_citations": [
+        21,
+        301,
+        129,
+        303
+      ],
+      "improved_refused": false,
+      "should_refuse": true,
+      "improved_answer_preview": "Based on ****:  - \"800-889-8969 (in the United States or Canada)\" *(, page 21)* - \"Its environment is the computer with "
+    },
+    {
+      "id": "unrel_26",
+      "category": "unrelated",
+      "question": "How do you make authentic Neapolitan pizza dough with sourdough starter at home?",
+      "expected_pages": [],
+      "baseline_pages": [
+        403,
+        29,
+        272,
+        464,
+        454
+      ],
+      "improved_pages": [
+        104,
+        247,
+        246,
+        273,
+        193
+      ],
+      "baseline_citations": [
+        403,
+        29,
+        272,
+        464,
+        454
+      ],
+      "improved_citations": [
+        104,
+        247,
+        273
+      ],
+      "improved_refused": false,
+      "should_refuse": true,
+      "improved_answer_preview": "Based on ****:  - \"If you input “How to make pizza” into the model, the model\" *(, page 104)* - \"Giving the instructions"
+    },
+    {
+      "id": "unrel_27",
+      "category": "unrelated",
+      "question": "What is the capital city and official currency of Madagascar?",
+      "expected_pages": [],
+      "baseline_pages": [
+        147,
+        364,
+        457,
+        106,
+        291
+      ],
+      "improved_pages": [
+        485,
+        499,
+        322,
+        440,
+        187
+      ],
+      "baseline_citations": [
+        147,
+        364,
+        457,
+        106,
+        291
+      ],
+      "improved_citations": [
+        485,
+        499,
+        322,
+        440,
+        187
+      ],
+      "improved_refused": false,
+      "should_refuse": true,
+      "improved_answer_preview": "Based on ****:  - \"capital city of Vietnam?”, which is semantically the same question but with slightly\" *(, page 485)* "
+    },
+    {
+      "id": "unrel_28",
+      "category": "unrelated",
+      "question": "Who scored the winning goal in the 1998 FIFA World Cup final?",
+      "expected_pages": [],
+      "baseline_pages": [
+        23,
+        99,
+        241,
+        530,
+        379
+      ],
+      "improved_pages": [
+        23,
+        111,
+        389,
+        281,
+        299
+      ],
+      "baseline_citations": [
+        23,
+        99,
+        241,
+        530,
+        379
+      ],
+      "improved_citations": [
+        23,
+        111,
+        389
+      ],
+      "improved_refused": false,
+      "should_refuse": true,
+      "improved_answer_preview": "Based on ****:  - \"about bringing ML into the world.\" *(, page 23)* - \"function represents the difference in output scor"
+    },
+    {
+      "id": "unrel_29",
+      "category": "unrelated",
+      "question": "How do chlorophyll molecules absorb photon wavelengths during light-dependent photosynthetic reactions?",
+      "expected_pages": [],
+      "baseline_pages": [
+        246,
+        3,
+        279,
+        345,
+        401
+      ],
+      "improved_pages": [],
+      "baseline_citations": [
+        246,
+        3,
+        279,
+        345,
+        401
+      ],
+      "improved_citations": [],
+      "improved_refused": true,
+      "should_refuse": true,
+      "improved_answer_preview": "I couldn't find sufficient supporting information in your uploaded documents to answer this question."
+    },
+    {
+      "id": "unrel_30",
+      "category": "unrelated",
+      "question": "What are the clinical ultrasound criteria for acute appendicitis in pediatric emergency care?",
+      "expected_pages": [],
+      "baseline_pages": [
+        375,
+        123,
+        338,
+        333,
+        198
+      ],
+      "improved_pages": [
+        203,
+        229,
+        491,
+        163,
+        188
+      ],
+      "baseline_citations": [
+        375,
+        123,
+        338,
+        333,
+        198
+      ],
+      "improved_citations": [
+        203,
+        229,
+        491
+      ],
+      "improved_refused": false,
+      "should_refuse": true,
+      "improved_answer_preview": "Based on ****:  - \"Now that you have your criteria, let’s move on to the next step and use them to select\" *(, page 203)"
+    }
+  ]
+}

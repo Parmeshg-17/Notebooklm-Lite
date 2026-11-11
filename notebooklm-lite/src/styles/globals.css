@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import "tailwindcss";
+
+/* ============================================
+   NOTEBOOKLM LITE — DESIGN SYSTEM TOKENS
+   Source: Google Stitch / Insight Workspace
+   ============================================ */
+
+@theme {
+  /* ── Surfaces ── */
+  --color-surface: #faf8ff;
+  --color-surface-dim: #d9d9e2;
+  --color-surface-bright: #faf8ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f3fc;
+  --color-surface-container: #ededf6;
+  --color-surface-container-high: #e7e7f0;
+  --color-surface-container-highest: #e2e2ea;
+  --color-surface-variant: #e2e2ea;
+  --color-background: #faf8ff;
+
+  /* ── On-Surfaces ── */
+  --color-on-surface: #191b21;
+  --color-on-surface-variant: #474554;
+  --color-inverse-surface: #2e3037;
+  --color-inverse-on-surface: #f0f0f9;
+  --color-on-background: #191b21;
+
+  /* ── Primary ── */
+  --color-primary: #493ebf;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #6259d9;
+  --color-on-primary-container: #efebff;
+  --color-primary-fixed: #e3dfff;
+  --color-primary-fixed-dim: #c4c0ff;
+  --color-on-primary-fixed: #120068;
+  --color-on-primary-fixed-variant: #3c2fb2;
+  --color-inverse-primary: #c4c0ff;
+  --color-surface-tint: #554bcb;
+
+  /* ── Secondary ── */
+  --color-secondary: #5a5e6a;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #dfe2f0;
+  --color-on-secondary-container: #606470;
+  --color-secondary-fixed: #dfe2f0;
+  --color-secondary-fixed-dim: #c3c6d3;
+  --color-on-secondary-fixed: #171c25;
+  --color-on-secondary-fixed-variant: #424752;
+
+  /* ── Tertiary (success green) ── */
+  --color-tertiary: #006040;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #007b53;
+  --color-on-tertiary-container: #acffd3;
+  --color-tertiary-fixed: #94f6c4;
+  --color-tertiary-fixed-dim: #78d9aa;
+  --color-on-tertiary-fixed: #002113;
+  --color-on-tertiary-fixed-variant: #005236;
+
+  /* ── Error ── */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* ── Outline ── */
+  --color-outline: #777585;
+  --color-outline-variant: #c8c4d6;
+
+  /* ── Typography ── */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* Font sizes with line-height */
+  --font-size-display-lg: 2rem;       /* 32px */
+  --line-height-display-lg: 2.5rem;   /* 40px */
+  --font-size-headline-lg: 1.5rem;    /* 24px */
+  --line-height-headline-lg: 2rem;    /* 32px */
+  --font-size-headline-md: 1.25rem;   /* 20px */
+  --line-height-headline-md: 1.75rem; /* 28px */
+  --font-size-headline-sm: 1rem;      /* 16px */
+  --line-height-headline-sm: 1.5rem;  /* 24px */
+  --font-size-body-lg: 0.9375rem;     /* 15px */
+  --line-height-body-lg: 1.5rem;      /* 24px */
+  --font-size-body-md: 0.8125rem;     /* 13px */
+  --line-height-body-md: 1.25rem;     /* 20px */
+  --font-size-body-sm: 0.75rem;       /* 12px */
+  --line-height-body-sm: 1.125rem;    /* 18px */
+  --font-size-label-md: 0.75rem;      /* 12px */
+  --line-height-label-md: 1rem;       /* 16px */
+  --font-size-label-sm: 0.6875rem;    /* 11px */
+  --line-height-label-sm: 0.875rem;   /* 14px */
+  --font-size-code-sm: 0.6875rem;     /* 11px */
+  --line-height-code-sm: 1rem;        /* 16px */
+
+  /* ── Border Radius ── */
+  --radius-sm: 0.125rem;  /* 2px */
+  --radius: 0.25rem;      /* 4px */
+  --radius-md: 0.375rem;  /* 6px */
+  --radius-lg: 0.5rem;    /* 8px */
+  --radius-xl: 0.75rem;   /* 12px */
+  --radius-full: 9999px;
+
+  /* ── Spacing ── */
+  --spacing: 0.25rem;
+  --spacing-space-xs: 0.25rem;   /* 4px */
+  --spacing-space-sm: 0.5rem;    /* 8px */
+  --spacing-space-md: 0.75rem;   /* 12px */
+  --spacing-space-lg: 1rem;      /* 16px */
+  --spacing-space-xl: 1.5rem;    /* 24px */
+
+  /* ── Containers / Max Widths ── */
+  --container-xs: 20rem;   /* 320px */
+  --container-sm: 24rem;   /* 384px */
+  --container-md: 28rem;   /* 448px */
+  --container-lg: 32rem;   /* 512px */
+  --container-xl: 36rem;   /* 576px */
+  --container-2xl: 42rem;  /* 672px */
+  --container-3xl: 48rem;  /* 768px */
+  --container-4xl: 56rem;  /* 896px */
+  --container-5xl: 64rem;  /* 1024px */
+  --container-6xl: 72rem;  /* 1152px */
+  --container-7xl: 80rem;  /* 1280px */
+}
+
+/* ── Base Reset ── */
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Tabular nums for all numeric data */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ── Typography utilities ── */
+@layer utilities {
+  .text-display-lg {
+    font-size: var(--font-size-display-lg);
+    line-height: var(--line-height-display-lg);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .text-headline-lg {
+    font-size: var(--font-size-headline-lg);
+    line-height: var(--line-height-headline-lg);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  .text-headline-md {
+    font-size: var(--font-size-headline-md);
+    line-height: var(--line-height-headline-md);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  .text-headline-sm {
+    font-size: var(--font-size-headline-sm);
+    line-height: var(--line-height-headline-sm);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .text-body-lg {
+    font-size: var(--font-size-body-lg);
+    line-height: var(--line-height-body-lg);
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+
+  .text-body-md {
+    font-size: var(--font-size-body-md);
+    line-height: var(--line-height-body-md);
+    font-weight: 400;
+  }
+
+  .text-body-sm {
+    font-size: var(--font-size-body-sm);
+    line-height: var(--line-height-body-sm);
+    font-weight: 400;
+  }
+
+  .text-label-md {
+    font-size: var(--font-size-label-md);
+    line-height: var(--line-height-label-md);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .text-label-sm {
+    font-size: var(--font-size-label-sm);
+    line-height: var(--line-height-label-sm);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .text-code-sm {
+    font-size: var(--font-size-code-sm);
+    line-height: var(--line-height-code-sm);
+    font-weight: 500;
+    font-family: var(--font-sans);
+  }
+}
+

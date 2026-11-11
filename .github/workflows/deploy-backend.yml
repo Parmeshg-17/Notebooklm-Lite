@@ -1,0 +1,98 @@
+name: Deploy Backend (ECS Fargate)
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Target environment (staging or production)"
+        required: true
+        default: "production"
+  push:
+    branches: [main]
+    paths:
+      - "backend/**"
+      - ".github/workflows/deploy-backend.yml"
+
+permissions:
+  id-token: write   # Required for AWS IAM OIDC Federation
+  contents: read
+
+env:
+  AWS_REGION: ap-south-1
+  ECR_REPOSITORY: notebooklm-backend
+  ECS_CLUSTER: notebooklm-cluster
+  ECS_SERVICE: notebooklm-backend-service
+  ECS_TASK_DEFINITION: infrastructure/ecs/task-definition.json
+  CONTAINER_NAME: backend
+
+jobs:
+  deploy-backend:
+    name: Deploy to Amazon ECS Fargate
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
+          role-session-name: GitHubActions-NotebookLM-BackendDeploy
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Log in to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, Tag, and Push Image to Amazon ECR
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./backend
+          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Download Active Task Definition
+        run: |
+          aws ecs describe-task-definition \
+            --task-definition notebooklm-backend \
+            --query taskDefinition > task-def.json
+
+      - name: Update Container Image in Task Definition
+        id: render-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: task-def.json
+          container-name: ${{ env.CONTAINER_NAME }}
+          image: ${{ steps.build-image.outputs.image }}
+
+      - name: Deploy Amazon ECS Task Definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+        with:
+          task-definition: ${{ steps.render-task-def.outputs.task-definition }}
+          service: ${{ env.ECS_SERVICE }}
+          cluster: ${{ env.ECS_CLUSTER }}
+          wait-for-service-stability: true
+
+      - name: Verify Backend Healthcheck
+        run: |
+          ALB_DNS=$(aws elbv2 describe-load-balancers --names notebooklm-alb --query "LoadBalancers[0].DNSName" --output text)
+          echo "Probing ALB at http://$ALB_DNS/api/v1/health..."
+          for i in {1..12}; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://$ALB_DNS/api/v1/health || true)
+            if [ "$STATUS" = "200" ]; then
+              echo "Backend is healthy (HTTP 200)!"
+              exit 0
+            fi
+            echo "Waiting for healthcheck (Attempt $i/12 - Got $STATUS)..."
+            sleep 10
+          done
+          echo "Healthcheck failed to reach HTTP 200 within 120s"
+          exit 1
+

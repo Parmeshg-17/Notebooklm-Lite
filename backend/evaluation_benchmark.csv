@@ -1,0 +1,10 @@
+Metric,Baseline,Improved,Delta
+Recall@5,33.33,51.11,+17.78
+Precision@5,0.0,8.0,+8.0
+MRR,0.3333,0.4778,+0.14
+Context Precision,33.33,46.2,+12.87
+Faithfulness,26.67,70.0,+43.33
+Answer Relevancy,11.22,43.11,+31.89
+Citation Accuracy,0.0,10.39,+10.39
+Unsupported Claim Rate,100.0,89.61,-10.39
+Refusal Accuracy,66.67,70.0,+3.33

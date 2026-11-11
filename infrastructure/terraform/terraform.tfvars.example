@@ -1,0 +1,27 @@
+# NotebookLM Lite — Terraform Example Variables (ap-south-1 Mumbai)
+# Copy this file to terraform.tfvars and fill in your values.
+# NEVER commit terraform.tfvars to Git.
+
+aws_region   = "ap-south-1"
+environment  = "production"
+project_name = "notebooklm"
+
+# Compute Tier Configuration
+# For AWS Free Tier testing: db.t4g.micro + 256 vCPU / 512 MB memory
+# For High-Availability Production: db.t4g.small + 512 vCPU / 1024 MB memory
+db_instance_class     = "db.t4g.micro"
+db_allocated_storage  = 20
+ecs_cpu               = 512
+ecs_memory            = 1024
+backend_desired_count = 2
+backend_min_count     = 1
+backend_max_count     = 4
+
+# Sensitive Credentials (Injected into AWS Secrets Manager)
+google_api_key = "AIzaSy..."
+qdrant_url     = "https://85ac0602-f166-4f07-9957-b138b4272250.us-west-1-0.aws.cloud.qdrant.io:6333"
+qdrant_api_key = "..."
+
+# GitHub Actions OIDC (Format: "your-org/your-repo")
+github_repo = "your-github-username/notebooklm-lite"
+

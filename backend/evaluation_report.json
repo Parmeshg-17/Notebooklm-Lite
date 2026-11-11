@@ -1,0 +1,218 @@
+{
+  "metadata": {
+    "dataset_name": "NotebookLM Lite \u2014 AI Engineering PDF RAG Evaluation",
+    "dataset_version": "1.0.0",
+    "timestamp": "2026-11-10T12:11:19.919197+00:00",
+    "target_notebook_id": "438c1105-030b-42ed-84ff-5fd4ea7284ba",
+    "target_owner_id": "c5ee3cf6-441c-4d30-87a7-24954a0397a8",
+    "available_doc_count": 4,
+    "evaluated_questions_count": 2,
+    "filter_category": "multi_document",
+    "filter_limit": 2
+  },
+  "summary": {
+    "total_questions": 2,
+    "passed": 2,
+    "failed": 0,
+    "blocked": 0,
+    "errors": 0,
+    "overall_pass_rate": 1.0,
+    "mean_latency_ms": 11620.9,
+    "mean_answer_relevance": 0.957,
+    "mean_retrieval_relevance": 1.0,
+    "mean_citation_precision": 1.0,
+    "mean_citation_page_accuracy": 1.0,
+    "mean_claim_grounding": 1.0,
+    "mean_abstention_accuracy": 1.0
+  },
+  "category_scores": {
+    "multi_document": {
+      "category": "multi_document",
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "blocked": 0,
+      "errors": 0,
+      "pass_rate": 1.0,
+      "mean_latency_ms": 11620.9,
+      "mean_answer_relevance": 0.957,
+      "mean_retrieval_relevance": 1.0,
+      "mean_citation_precision": 1.0,
+      "mean_citation_page_accuracy": 1.0,
+      "mean_claim_grounding": 1.0,
+      "mean_abstention_accuracy": 1.0
+    }
+  },
+  "questions": [
+    {
+      "id": "Q021",
+      "category": "multi_document",
+      "question": "Across the uploaded documents, explain the typical development process for modern AI applications.",
+      "answerable_from_source": true,
+      "status": "PASS",
+      "latency_ms": 10576.1,
+      "token_usage": {
+        "prompt_tokens": 24,
+        "completion_tokens": 148,
+        "total_tokens": 173
+      },
+      "generated_answer": "Based on the provided documents, the typical development process for modern AI applications involves several iterative steps: analyzing data sets to understand relevant features, creating and evolving ML/DL models by experimenting with different algorithms to select the most promising one, training and validating the model using data, and deploying the model into a system where it is connected to data streams for inference. Additionally, in industrial deployments, AI models are constantly improved, retrained, and redeployed, following the same DevOps process as other software components.",
+      "citations": [
+        {
+          "document_id": "8e101d04-e28b-4d23-afb7-fd29052d96e7",
+          "filename": "Engineering-AI-Systems-A-Research-Agenda.pdf",
+          "page_number": 4,
+          "relevance_score": 0.7696,
+          "text_excerpt": null
+        },
+        {
+          "document_id": "8e101d04-e28b-4d23-afb7-fd29052d96e7",
+          "filename": "Engineering-AI-Systems-A-Research-Agenda.pdf",
+          "page_number": 2,
+          "relevance_score": 0.7258,
+          "text_excerpt": null
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "7f68a011-c841-5146-8b02-1e6afbdca684",
+          "document_id": "8e101d04-e28b-4d23-afb7-fd29052d96e7",
+          "page_number": 5,
+          "score": 0.7246,
+          "text_snippet": "primary research challenges concerning development in AI\nengineering below.\n\u2022 DataOps: Although considered a buzzword by some,\nDataOps raises the concern of managing everything data\nwith the same stru"
+        },
+        {
+          "chunk_id": "f0fd8ef7-e73c-5429-8ac5-46e294514e5e",
+          "document_id": "8e101d04-e28b-4d23-afb7-fd29052d96e7",
+          "page_number": 4,
+          "score": 0.7696,
+          "text_snippet": "used for training and evaluation and to evaluate these in\norder to understand the relevant features in the data.\n\u2022 Create & evolve ML/DL model: After analysing the\ndata sets, the next step is to exper"
+        },
+        {
+          "chunk_id": "49bfa3de-0c2a-5886-b44c-4c246655b1f7",
+          "document_id": "8e101d04-e28b-4d23-afb7-fd29052d96e7",
+          "page_number": 6,
+          "score": 0.7278,
+          "text_snippet": "the overall performance of the system, the validation\nactivities need to be more elaborate and strict.\nC. AI Engineering: Process\nAlthough the notion of process has gone out of vogue with\nthe emergenc"
+        },
+        {
+          "chunk_id": "65091ac3-1634-5d09-be4d-c1c89fe275cc",
+          "document_id": "8e101d04-e28b-4d23-afb7-fd29052d96e7",
+          "page_number": 2,
+          "score": 0.7258,
+          "text_snippet": "ing and logging, etc. [2], [11]. To capture these aspects of\nAI engineering we defined the Holistic DevOps (HoliDev)\nmodel [12] [4], where we distinguish between requirements-\ndriven development, outc"
+        },
+        {
+          "chunk_id": "fa2102c6-eac4-584a-8cf0-0c8d12fad55b",
+          "document_id": "8e101d04-e28b-4d23-afb7-fd29052d96e7",
+          "page_number": 3,
+          "score": 0.7265,
+          "text_snippet": "data, it does not provide acceptable accuracy.\nEach step requires increased activities of AI engineering\n- a set of methods and tools that originated from software\nengineering in a system life cycle, "
+        }
+      ],
+      "retrieved_chunk_count": 5,
+      "scores": {
+        "answer_relevance": 1.0,
+        "retrieval_relevance": 1.0,
+        "citation_precision": 1.0,
+        "citation_page_accuracy": 1.0,
+        "claim_grounding": 1.0,
+        "abstention_accuracy": 1.0,
+        "overall": 1.0
+      },
+      "reason": null
+    },
+    {
+      "id": "Q022",
+      "category": "multi_document",
+      "question": "Compare the approaches described across the documents for improving foundation-model performance.",
+      "answerable_from_source": true,
+      "status": "PASS",
+      "latency_ms": 12665.6,
+      "token_usage": {
+        "prompt_tokens": 24,
+        "completion_tokens": 419,
+        "total_tokens": 443
+      },
+      "generated_answer": "Based on the provided documents, several approaches for improving foundation-model performance and handling knowledge-intensive tasks are discussed, including Retrieval-Augmented Generation (RAG) and Fine-Tuning (FT), as well as specific retrieval and module orchestration strategies within RAG:\n\n1. **Retrieval-Augmented Generation (RAG) vs. Fine-Tuning (FT):** RAG excels in dynamic environments by offering real-time knowledge updates, utilizing external knowledge sources with high interpretability, and consistently outperforming unsupervised fine-tuning on both existing and entirely new knowledge. However, RAG comes with higher latency and ethical considerations. In contrast, FT is more static (requiring retraining for updates), demands significant computational resources, and struggles with unfamiliar data, but it enables deep customization of behavior and style and can reduce hallucinations. RAG and FT are not mutually exclusive and can be combined for optimal performance.\n\n2. **Alternative Retrieval and Generation Strategies:** Approaches like Generate-Read replace traditional retrieval with LLM-generated content, while Recite-Read emphasizes retrieval from model weights. Hybrid retrieval integrates keyword, semantic, and vector searches. Sub-queries and hypothetical document embeddings (HyDE) aim to improve retrieval relevance by focusing on embedding similarities between generated answers and real documents.\n\n3. **Module Arrangement and Interaction:** Frameworks like Demonstrate-Search-Predict (DSP) and ITER-RETGEN (which uses an iterative Retrieve-Read-Retrieve-Read flow) dynamically use module outputs to bolster other modules' functionalities.",
+      "citations": [
+        {
+          "document_id": "dbd209fd-947c-431a-b05a-922d1b2787aa",
+          "filename": "Retrieval-Augmented-Generation-Survey.pdf",
+          "page_number": 1,
+          "relevance_score": 0.85,
+          "text_excerpt": null
+        },
+        {
+          "document_id": "dbd209fd-947c-431a-b05a-922d1b2787aa",
+          "filename": "Retrieval-Augmented-Generation-Survey.pdf",
+          "page_number": 1,
+          "relevance_score": 0.85,
+          "text_excerpt": null
+        },
+        {
+          "document_id": "dbd209fd-947c-431a-b05a-922d1b2787aa",
+          "filename": "Retrieval-Augmented-Generation-Survey.pdf",
+          "page_number": 1,
+          "relevance_score": 0.85,
+          "text_excerpt": null
+        },
+        {
+          "document_id": "dbd209fd-947c-431a-b05a-922d1b2787aa",
+          "filename": "Retrieval-Augmented-Generation-Survey.pdf",
+          "page_number": 1,
+          "relevance_score": 0.85,
+          "text_excerpt": null
+        },
+        {
+          "document_id": "dbd209fd-947c-431a-b05a-922d1b2787aa",
+          "filename": "Retrieval-Augmented-Generation-Survey.pdf",
+          "page_number": 1,
+          "relevance_score": 0.85,
+          "text_excerpt": null
+        },
+        {
+          "document_id": "dbd209fd-947c-431a-b05a-922d1b2787aa",
+          "filename": "Retrieval-Augmented-Generation-Survey.pdf",
+          "page_number": 1,
+          "relevance_score": 0.85,
+          "text_excerpt": null
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "comp_dbd209fd-947c-431a-b05a-922d1b2787aa_0",
+          "document_id": "dbd209fd-947c-431a-b05a-922d1b2787aa",
+          "page_number": 1,
+          "score": 0.85,
+          "text_snippet": "Similarly, approaches like Generate-Read [13] replace tradi-\ntional retrieval with LLM-generated content, while Recite-\nRead [22] emphasizes retrieval from model weights, enhanc-\ning the model's abili"
+        },
+        {
+          "chunk_id": "comp_dbd209fd-947c-431a-b05a-922d1b2787aa_1",
+          "document_id": "dbd209fd-947c-431a-b05a-922d1b2787aa",
+          "page_number": 1,
+          "score": 0.85,
+          "text_snippet": "to a student internalizing knowledge over time, suitable for\nscenarios requiring replication of specific structures, styles, or\nformats.\nRAG excels in dynamic environments by offering real-\ntime knowl"
+        },
+        {
+          "chunk_id": "comp_dbd209fd-947c-431a-b05a-922d1b2787aa_2",
+          "document_id": "dbd209fd-947c-431a-b05a-922d1b2787aa",
+          "page_number": 1,
+          "score": 0.85,
+          "text_snippet": "vealed that while unsupervised fine-tuning shows some im-\nprovement, RAG consistently outperforms it, for both exist-\ning knowledge encountered during training and entirely new\nknowledge. Additionally"
+        }
+      ],
+      "retrieved_chunk_count": 3,
+      "scores": {
+        "answer_relevance": 0.914,
+        "retrieval_relevance": 1.0,
+        "citation_precision": 1.0,
+        "citation_page_accuracy": 1.0,
+        "claim_grounding": 1.0,
+        "abstention_accuracy": 1.0,
+        "overall": 0.979
+      },
+      "reason": null
+    }
+  ]
+}
