@@ -22,13 +22,13 @@ resource "aws_security_group" "alb" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Outbound to ECS Tasks on port 8000
+  # Outbound traffic (ALB forwards traffic to target group targets in private subnets)
   egress {
-    description     = "Allow outbound traffic exclusively to ECS tasks"
-    from_port       = 8000
-    to_port         = 8000
-    protocol        = "tcp"
-    security_groups = [aws_security_group.ecs_tasks.id]
+    description = "Allow outbound traffic from ALB to targets"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
@@ -51,22 +51,13 @@ resource "aws_security_group" "ecs_tasks" {
     security_groups = [aws_security_group.alb.id]
   }
 
-  # Outbound HTTPS (443) to AWS APIs (S3, Secrets Manager, ECR) and Gemini/Qdrant Cloud
+  # Outbound egress for API calls, package fetches, and database connections
   egress {
-    description = "Allow outbound HTTPS for cloud APIs"
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
+    description = "Allow all outbound traffic from ECS tasks"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  # Outbound to RDS PostgreSQL on port 5432
-  egress {
-    description     = "Allow database connections to RDS PostgreSQL"
-    from_port       = 5432
-    to_port         = 5432
-    protocol        = "tcp"
-    security_groups = [aws_security_group.rds.id]
   }
 
   tags = {

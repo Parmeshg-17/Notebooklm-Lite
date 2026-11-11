@@ -111,6 +111,6 @@ variable "qdrant_api_key" {
 variable "github_repo" {
   type        = string
   description = "GitHub repository identifier in format 'org/repo' for OIDC trust"
-  default     = "org/notebooklm-lite"
+  default     = "Parmeshg-17/Notebooklm-Lite"
 }
 

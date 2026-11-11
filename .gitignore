@@ -80,3 +80,5 @@ Thumbs.db
 .vscode/
 .idea/
 
+infrastructure/terraform/bin/
+*.exe

@@ -54,6 +54,8 @@ resource "aws_s3_bucket_lifecycle_configuration" "documents_lifecycle" {
     id     = "archive-old-versions"
     status = "Enabled"
 
+    filter {}
+
     noncurrent_version_transition {
       noncurrent_days = 90
       storage_class   = "GLACIER"
@@ -103,8 +105,8 @@ resource "aws_s3_bucket_policy" "frontend_oac_policy" {
     Version = "2012-10-17"
     Statement = [
       {
-        Sid       = "AllowCloudFrontServicePrincipalReadOnly"
-        Effect    = "Allow"
+        Sid    = "AllowCloudFrontServicePrincipalReadOnly"
+        Effect = "Allow"
         Principal = {
           Service = "cloudfront.amazonaws.com"
         }

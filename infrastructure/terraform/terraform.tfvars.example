@@ -22,6 +22,6 @@ google_api_key = "AIzaSy..."
 qdrant_url     = "https://85ac0602-f166-4f07-9957-b138b4272250.us-west-1-0.aws.cloud.qdrant.io:6333"
 qdrant_api_key = "..."
 
-# GitHub Actions OIDC (Format: "your-org/your-repo")
-github_repo = "your-github-username/notebooklm-lite"
+# GitHub Actions OIDC (Format: "org/repo")
+github_repo = "Parmeshg-17/Notebooklm-Lite"
 
