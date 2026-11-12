@@ -44,6 +44,7 @@ export default function WorkspacePage() {
   const [documentFilter, setDocumentFilter] = useState('');
   const [activeCitationDetail, setActiveCitationDetail] = useState<Citation | null>(null);
   const [exportOpen, setExportOpen] = useState(false);
+  const [mobileTab, setMobileTab] = useState<'sources' | 'chat' | 'citations'>('chat');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Sync active notebook ID in store & load real data
@@ -175,6 +176,7 @@ export default function WorkspacePage() {
     setActiveCitation(citation.id);
     setActiveCitationDetail(citation);
     setActiveDocument(citation.documentId);
+    setMobileTab('citations');
   };
 
   const handleOpenViewer = (citation: Citation) => {
@@ -200,31 +202,33 @@ export default function WorkspacePage() {
     <div className="flex flex-col h-[calc(100vh-3.5rem)] overflow-hidden" style={{ backgroundColor: 'var(--color-surface)' }}>
       {/* ── Sub-header Strip ── */}
       <div
-        className="h-12 px-6 flex items-center justify-between border-b flex-shrink-0"
+        className="min-h-12 px-3 sm:px-4 md:px-6 py-1.5 flex items-center justify-between border-b flex-shrink-0 gap-2"
         style={{
           backgroundColor: 'var(--color-surface-container-lowest)',
           borderColor: 'var(--color-outline-variant)',
         }}
       >
         {/* Left: Breadcrumbs & status */}
-        <div className="flex items-center gap-2 min-w-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
           <Link
             to="/notebooks"
-            className="text-label-md font-medium text-[--color-on-surface-variant] hover:text-[--color-primary] transition-colors"
+            className="text-label-sm sm:text-label-md font-medium text-[--color-on-surface-variant] hover:text-[--color-primary] transition-colors flex-shrink-0"
           >
-            My Notebooks
+            Notebooks
           </Link>
-          <ChevronRight size={14} className="text-[--color-on-surface-variant]" />
+          <ChevronRight size={14} className="text-[--color-on-surface-variant] flex-shrink-0" />
           <span
-            className="text-headline-sm font-bold truncate max-w-sm"
+            className="text-label-md sm:text-headline-sm font-bold truncate max-w-[130px] sm:max-w-xs md:max-w-sm"
             style={{ color: 'var(--color-on-surface)' }}
           >
             {notebook.title}
           </span>
-          <Badge tag={notebook.tag} size="sm" />
+          <div className="hidden sm:inline-flex">
+            <Badge tag={notebook.tag} size="sm" />
+          </div>
 
           <div
-            className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 rounded-full text-code-sm font-medium ml-2"
+            className="hidden md:flex items-center gap-1.5 px-2 py-0.5 rounded-full text-code-sm font-medium ml-2"
             style={{
               backgroundColor: 'var(--color-tertiary-fixed)',
               color: 'var(--color-on-tertiary-fixed-variant)',
@@ -236,7 +240,7 @@ export default function WorkspacePage() {
         </div>
 
         {/* Right: Actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
           {/* Share */}
           <Button
             size="sm"
@@ -244,7 +248,7 @@ export default function WorkspacePage() {
             icon={Share2}
             onClick={() => alert(`Shared workspace link for "${notebook.title}" copied to clipboard.`)}
           >
-            Share
+            <span className="hidden sm:inline">Share</span>
           </Button>
 
           {/* Export Dropdown */}
@@ -255,7 +259,7 @@ export default function WorkspacePage() {
               icon={Download}
               onClick={() => setExportOpen(!exportOpen)}
             >
-              Export
+              <span className="hidden sm:inline">Export</span>
             </Button>
             {exportOpen && (
               <div
@@ -297,11 +301,56 @@ export default function WorkspacePage() {
         </div>
       </div>
 
+      {/* ── Mobile Tab Navigation Bar (Visible on mobile / small screens < lg) ── */}
+      <div
+        className="lg:hidden flex items-center border-b px-2 py-1.5 gap-1.5 flex-shrink-0"
+        style={{
+          backgroundColor: 'var(--color-surface-container-lowest)',
+          borderColor: 'var(--color-outline-variant)',
+        }}
+      >
+        <button
+          onClick={() => setMobileTab('sources')}
+          className="flex-1 py-1.5 px-2 rounded-lg text-label-sm font-semibold flex items-center justify-center gap-1.5 transition-colors"
+          style={{
+            backgroundColor: mobileTab === 'sources' ? 'var(--color-primary-container)' : 'transparent',
+            color: mobileTab === 'sources' ? 'var(--color-on-primary-container)' : 'var(--color-on-surface-variant)',
+          }}
+        >
+          <Layers size={14} />
+          <span>Sources ({notebookDocs.length})</span>
+        </button>
+
+        <button
+          onClick={() => setMobileTab('chat')}
+          className="flex-1 py-1.5 px-2 rounded-lg text-label-sm font-semibold flex items-center justify-center gap-1.5 transition-colors"
+          style={{
+            backgroundColor: mobileTab === 'chat' ? 'var(--color-primary-container)' : 'transparent',
+            color: mobileTab === 'chat' ? 'var(--color-on-primary-container)' : 'var(--color-on-surface-variant)',
+          }}
+        >
+          <Sparkles size={14} />
+          <span>Chat</span>
+        </button>
+
+        <button
+          onClick={() => setMobileTab('citations')}
+          className="flex-1 py-1.5 px-2 rounded-lg text-label-sm font-semibold flex items-center justify-center gap-1.5 transition-colors"
+          style={{
+            backgroundColor: mobileTab === 'citations' ? 'var(--color-primary-container)' : 'transparent',
+            color: mobileTab === 'citations' ? 'var(--color-on-primary-container)' : 'var(--color-on-surface-variant)',
+          }}
+        >
+          <FileText size={14} />
+          <span>Citations ({latestCitations.length})</span>
+        </button>
+      </div>
+
       {/* ── 3-Column Workspace Grid ── */}
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
         {/* ── LEFT COLUMN (col-span-3): Sources Panel ── */}
         <div
-          className="lg:col-span-3 flex flex-col h-full border-r overflow-hidden"
+          className={`${mobileTab === 'sources' ? 'flex' : 'hidden'} lg:flex lg:col-span-3 flex-col h-full border-r overflow-hidden`}
           style={{
             backgroundColor: 'var(--color-surface-container-low)',
             borderColor: 'var(--color-outline-variant)',
@@ -409,14 +458,14 @@ export default function WorkspacePage() {
 
         {/* ── CENTER COLUMN (col-span-6): Chat Panel ── */}
         <div
-          className="lg:col-span-6 flex flex-col h-full border-r overflow-hidden"
+          className={`${mobileTab === 'chat' ? 'flex' : 'hidden'} lg:flex lg:col-span-6 flex-col h-full border-r overflow-hidden`}
           style={{
             backgroundColor: 'var(--color-surface)',
             borderColor: 'var(--color-outline-variant)',
           }}
         >
           {/* Chat Messages Scrollable Area */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-4">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-6 space-y-4">
             {messages.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-8">
                 <div
@@ -450,7 +499,7 @@ export default function WorkspacePage() {
 
           {/* Sticky Bottom Input Bar */}
           <div
-            className="p-4 border-t"
+            className="p-2.5 sm:p-4 border-t"
             style={{
               backgroundColor: 'var(--color-surface-container-lowest)',
               borderColor: 'var(--color-outline-variant)',
@@ -462,7 +511,7 @@ export default function WorkspacePage() {
 
         {/* ── RIGHT COLUMN (col-span-3): Citation Context & Intelligence Panel ── */}
         <div
-          className="lg:col-span-3 flex flex-col h-full overflow-hidden"
+          className={`${mobileTab === 'citations' ? 'flex' : 'hidden'} lg:flex lg:col-span-3 flex-col h-full overflow-hidden`}
           style={{
             backgroundColor: 'var(--color-surface-container-low)',
           }}

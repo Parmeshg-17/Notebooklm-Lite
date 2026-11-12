@@ -28,7 +28,6 @@ jobs:
   deploy-backend:
     name: Deploy to Amazon ECS Fargate
     runs-on: ubuntu-latest
-    environment: production
 
     steps:
       - name: Checkout Code

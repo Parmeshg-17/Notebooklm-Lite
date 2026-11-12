@@ -397,6 +397,9 @@ interface UIState {
   activeDocumentId: string | null;
   activeCitationId: string | null;
   toggleSidebar: () => void;
+  openSidebar: () => void;
+  closeSidebar: () => void;
+  setSidebarOpen: (open: boolean) => void;
   openUploadModal: () => void;
   closeUploadModal: () => void;
   openCreateNotebookModal: () => void;
@@ -408,13 +411,16 @@ interface UIState {
 }
 
 export const useUIStore = create<UIState>((set) => ({
-  sidebarOpen: true,
+  sidebarOpen: typeof window !== 'undefined' ? window.innerWidth >= 768 : true,
   uploadModalOpen: false,
   createNotebookModalOpen: false,
   searchOpen: false,
   activeDocumentId: null,
   activeCitationId: null,
   toggleSidebar: () => set((s) => ({ sidebarOpen: !s.sidebarOpen })),
+  openSidebar: () => set({ sidebarOpen: true }),
+  closeSidebar: () => set({ sidebarOpen: false }),
+  setSidebarOpen: (open) => set({ sidebarOpen: open }),
   openUploadModal: () => set({ uploadModalOpen: true }),
   closeUploadModal: () => set({ uploadModalOpen: false }),
   openCreateNotebookModal: () => set({ createNotebookModalOpen: true }),

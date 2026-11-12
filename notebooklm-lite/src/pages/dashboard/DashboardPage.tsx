@@ -53,7 +53,7 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="p-8 max-w-7xl mx-auto space-y-8 animate-in fade-in duration-300">
+    <div className="p-4 sm:p-6 md:p-8 max-w-7xl mx-auto space-y-6 md:space-y-8 animate-in fade-in duration-300">
       {/* ── Welcome Header Section ── */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>

@@ -3,7 +3,7 @@ import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import {
   ArrowLeft, FileText, ChevronLeft, ChevronRight,
   ZoomIn, ZoomOut, Maximize2,
-  Download, Sparkles, Send, Highlighter
+  Download, Sparkles, Send, Highlighter, X
 } from 'lucide-react';
 import { useDocumentStore, useChatStore } from '../../store';
 import Button from '../../components/common/Button';
@@ -77,32 +77,32 @@ export default function DocumentViewerPage() {
     <div className="flex flex-col h-[calc(100vh-3.5rem)] overflow-hidden" style={{ backgroundColor: 'var(--color-surface)' }}>
       {/* ── Sticky Toolbar ── */}
       <div
-        className="h-12 px-4 flex items-center justify-between border-b flex-shrink-0"
+        className="min-h-12 px-2 sm:px-4 py-1.5 flex items-center justify-between border-b flex-shrink-0 gap-2"
         style={{
           backgroundColor: 'var(--color-surface-container-lowest)',
           borderColor: 'var(--color-outline-variant)',
         }}
       >
         {/* Left: Back & Document info */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
           <Button
             size="sm"
             variant="ghost"
             icon={ArrowLeft}
             onClick={() => navigate(`/workspace/${currentNotebookId}`)}
           >
-            Back
+            <span className="hidden sm:inline">Back</span>
           </Button>
 
-          <div className="h-4 w-px bg-[--color-outline-variant]" />
+          <div className="h-4 w-px bg-[--color-outline-variant] hidden sm:block" />
 
-          <div className="flex items-center gap-2">
-            <FileText size={16} style={{ color: 'var(--color-primary)' }} />
-            <span className="text-label-md font-bold truncate max-w-xs" style={{ color: 'var(--color-on-surface)' }}>
+          <div className="flex items-center gap-2 min-w-0">
+            <FileText size={16} className="flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
+            <span className="text-label-md font-bold truncate max-w-[120px] sm:max-w-xs" style={{ color: 'var(--color-on-surface)' }}>
               {doc.name}
             </span>
             <span
-              className="text-code-sm px-1.5 py-0.2 rounded font-medium"
+              className="text-code-sm px-1.5 py-0.2 rounded font-medium flex-shrink-0"
               style={{
                 backgroundColor: 'var(--color-secondary-container)',
                 color: 'var(--color-on-secondary-container)',
@@ -114,9 +114,9 @@ export default function DocumentViewerPage() {
         </div>
 
         {/* Center: Page controls & Zoom */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
           {/* Page nav */}
-          <div className="flex items-center gap-1.5 text-code-sm">
+          <div className="flex items-center gap-1 text-code-sm">
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page <= 1}
@@ -124,8 +124,8 @@ export default function DocumentViewerPage() {
             >
               <ChevronLeft size={16} />
             </button>
-            <span className="font-semibold text-[--color-on-surface]">
-              Page {page} of {totalPages}
+            <span className="font-semibold text-[--color-on-surface] whitespace-nowrap">
+              p. {page} / {totalPages}
             </span>
             <button
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
@@ -136,10 +136,10 @@ export default function DocumentViewerPage() {
             </button>
           </div>
 
-          <div className="h-4 w-px bg-[--color-outline-variant]" />
+          <div className="h-4 w-px bg-[--color-outline-variant] hidden md:block" />
 
           {/* Zoom controls */}
-          <div className="flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1">
             <button
               onClick={() => setZoom((z) => Math.max(50, z - 10))}
               className="p-1 rounded hover:bg-[--color-surface-container]"
@@ -166,7 +166,7 @@ export default function DocumentViewerPage() {
         </div>
 
         {/* Right: Actions & AI Companion toggle */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
           <Button
             size="sm"
             variant="ghost"
@@ -180,7 +180,7 @@ export default function DocumentViewerPage() {
             icon={Sparkles}
             onClick={() => setShowCompanion(!showCompanion)}
           >
-            AI Companion
+            <span className="hidden sm:inline">AI Companion</span>
           </Button>
         </div>
       </div>
@@ -211,7 +211,7 @@ export default function DocumentViewerPage() {
         {/* ── AI Companion Panel (Right) ── */}
         {showCompanion && (
           <div
-            className="w-96 flex flex-col h-full border-l overflow-hidden animate-in slide-in-from-right-4 duration-200"
+            className="fixed inset-y-0 right-0 z-40 w-full sm:w-96 md:relative flex flex-col h-full border-l overflow-hidden shadow-2xl md:shadow-none animate-in slide-in-from-right-4 duration-200"
             style={{
               backgroundColor: 'var(--color-surface-container-lowest)',
               borderColor: 'var(--color-outline-variant)',
@@ -228,9 +228,18 @@ export default function DocumentViewerPage() {
                   Document Companion
                 </h3>
               </div>
-              <span className="text-code-sm text-[--color-on-surface-variant]">
-                Grounded to p. {page}
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-code-sm text-[--color-on-surface-variant]">
+                  p. {page}
+                </span>
+                <button
+                  onClick={() => setShowCompanion(false)}
+                  className="p-1 rounded-lg hover:bg-[--color-surface-container] text-[--color-on-surface-variant]"
+                  aria-label="Close companion"
+                >
+                  <X size={16} />
+                </button>
+              </div>
             </div>
 
             {/* Scrollable companion body */}

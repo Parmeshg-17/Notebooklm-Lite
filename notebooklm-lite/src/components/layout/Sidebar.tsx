@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {
   Home, FolderOpen, Clock, Star, Share2, Plus, BarChart2,
   Settings, BookOpen, ChevronsUpDown, FileText,
-  Beaker, Link2, ShieldCheck,
+  Beaker, Link2, ShieldCheck, X,
 } from 'lucide-react';
 import { useNotebookStore, useAuthStore, useUIStore } from '../../store';
 
@@ -18,7 +18,7 @@ const NOTEBOOK_ICONS: Record<string, React.ElementType> = {
 export default function Sidebar() {
   const { notebooks, activeNotebookId, setActiveNotebook, loadNotebooks } = useNotebookStore();
   const { user } = useAuthStore();
-  const { openCreateNotebookModal } = useUIStore();
+  const { openCreateNotebookModal, sidebarOpen, closeSidebar } = useUIStore();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,9 +29,19 @@ export default function Sidebar() {
     ? user.name.split(' ').map((n) => n[0]).join('').toUpperCase()
     : 'U';
 
+  const handleNotebookClick = (id: string) => {
+    setActiveNotebook(id);
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      closeSidebar();
+    }
+    navigate(`/workspace/${id}`);
+  };
+
   return (
     <aside
-      className="fixed left-0 top-0 h-full w-[260px] flex flex-col justify-between select-none z-50"
+      className={`fixed left-0 top-0 h-full w-[260px] max-w-[85vw] flex flex-col justify-between select-none z-50 transition-transform duration-300 ease-in-out shadow-xl md:shadow-none ${
+        sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+      }`}
       style={{
         backgroundColor: 'var(--color-surface-container-low)',
         borderRight: '1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent)',
@@ -62,15 +72,25 @@ export default function Sidebar() {
               </span>
             </div>
           </div>
-          <span
-            className="px-1.5 py-0.5 rounded-lg text-code-sm font-medium uppercase tracking-wider flex-shrink-0"
-            style={{
-              backgroundColor: 'var(--color-secondary-container)',
-              color: 'var(--color-on-secondary-container)',
-            }}
-          >
-            v1.4 Ent
-          </span>
+          <div className="flex items-center gap-1.5 flex-shrink-0">
+            <span
+              className="px-1.5 py-0.5 rounded-lg text-code-sm font-medium uppercase tracking-wider"
+              style={{
+                backgroundColor: 'var(--color-secondary-container)',
+                color: 'var(--color-on-secondary-container)',
+              }}
+            >
+              v1.4 Ent
+            </span>
+            <button
+              onClick={closeSidebar}
+              className="md:hidden p-1 rounded-lg transition-colors flex items-center justify-center"
+              style={{ color: 'var(--color-on-surface-variant)' }}
+              aria-label="Close navigation sidebar"
+            >
+              <X size={18} />
+            </button>
+          </div>
         </div>
 
         {/* Scrollable nav */}
@@ -118,10 +138,7 @@ export default function Sidebar() {
                 return (
                   <button
                     key={nb.id}
-                    onClick={() => {
-                      setActiveNotebook(nb.id);
-                      navigate(`/workspace/${nb.id}`);
-                    }}
+                    onClick={() => handleNotebookClick(nb.id)}
                     className="w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-body-md text-left transition-colors"
                     style={{
                       backgroundColor: isActive ? 'var(--color-primary-fixed)' : 'transparent',
@@ -203,9 +220,17 @@ interface NavItemProps {
 }
 
 function NavItem({ to, icon: Icon, label, badge }: NavItemProps) {
+  const { closeSidebar } = useUIStore();
+  const handleClick = () => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      closeSidebar();
+    }
+  };
+
   return (
     <NavLink
       to={to}
+      onClick={handleClick}
       className="flex items-center justify-between px-2 py-1.5 rounded-lg text-body-md transition-colors"
       style={({ isActive }) => ({
         backgroundColor: isActive ? 'var(--color-primary-container)' : 'transparent',
